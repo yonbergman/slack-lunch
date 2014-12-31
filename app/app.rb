@@ -16,8 +16,7 @@ class SlackLunch < Sinatra::Base
     channel = request['channel_name']
 
     text = CommandParser.new.run_command(user, command, channel)
-
-    reply text
-
+    text
+    
   end
 end
