@@ -4,7 +4,6 @@ class CommandParser
 
   def initialize
     @lunch = LunchManager.new
-    @output = Output.new
   end
 
   def run_command(user, text, channel)
@@ -44,7 +43,8 @@ class CommandParser
   end
 
   def print_current_lunch
-    @output.post "People want #{@lunch.all.inspect}", @channel
+    Output.post "People want #{@lunch.all.inspect}", @channel
+    ""
   end
 
 
