@@ -17,7 +17,7 @@ class CommandParser
       when 'remove' then remove_restaurant
       when 'me' then print_my_lunch
       when 'all' then print_current_lunch
-      else print_current_lunch
+      else print_my_lunch
     end
   end
 
