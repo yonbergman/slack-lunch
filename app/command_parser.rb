@@ -1,12 +1,15 @@
 require_relative './lunch'
+require_relative './output'
 class CommandParser
 
   def initialize
     @lunch = LunchManager.new
+    @output = Output.new
   end
 
-  def run_command(user, text)
+  def run_command(user, text, channel)
     @user = user
+    @channel = channel
     parts = text.downcase.split(/\s/)
     @command = parts.first
     @args = parts.slice(1..-1)
@@ -41,7 +44,7 @@ class CommandParser
   end
 
   def print_current_lunch
-    "People want #{@lunch.all.inspect}"
+    @output.post "People want #{@lunch.all.inspect}", @channel
   end
 
 

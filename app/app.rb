@@ -13,11 +13,11 @@ class SlackLunch < Sinatra::Base
 
     user = request['user_id']
     command = request["text"]
+    channel = request['channel_name']
 
-    text = CommandParser.new.run_command(user, command)
+    text = CommandParser.new.run_command(user, command, channel)
 
-    response = {username: "lunch-bot", icon_emoji: ":curry:", text: text}
-    reply = JSON.generate response
+    reply text
 
   end
 end
